@@ -59,8 +59,8 @@ def rest_call(url, action, data):
 # format the fail message
 def format_fail(acl_fail):
 #    #Step2: Change the output to just the conflict issue.  ####
-    return json.dumps(acl_fail,indent=4, separators=(',', ': '))
-    #return json.dumps(acl_fail['conflictList'],indent=4, separators=(',', ': '))
+     return json.dumps(acl_fail,indent=4, separators=(',', ': '))
+#    return json.dumps(acl_fail['conflictList'],indent=4, separators=(',', ': '))
 #    #End Step2 ######
 
 # work out if acl check succeeded or not.
@@ -103,10 +103,10 @@ if res is not None:
                     acl_id = acl['acl']['id']
 
 #                   # Step1 Run the call to look for conflicts ####
-                    #res_conf = rest_call("/acl/conflict/" + acl_id, "GET", "")
-                    #if res_conf is not None:
-                    #    result = res_conf['response']
-                    #print process_result(result),
+#                    res_conf = rest_call("/acl/conflict/" + acl_id, "GET", "")
+#                    if res_conf is not None:
+#                        result = res_conf['response']
+#                    print process_result(result),
 #                   #End of Step 1 ####
                     print
                        

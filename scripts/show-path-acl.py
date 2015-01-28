@@ -62,7 +62,7 @@ def show_interface(interface):
     if interface["aclName"] is not None:
         result += " (%s) block=%s" % (interface['aclName'], interface['blockType'])
     for ace in interface['relevantAces']:
-    #    for destport in XXXXXXXXXXXXX
+#        for destport in XXXXXXXXXXXXX
 #	    result += "(%s:%s)" % (destport['protocol'], destport['ports'])
         return result
     

@@ -29,12 +29,12 @@ try:
 	print "=======================\n\n"
 		
 #	# ####Step3: allow iteration over the results ####
-	# uncomment the following section
-	#devices = content["response"]
-
-	#print "Platform", "Serial Number", "Name", "Version"
-	#for device in devices:
-		#print device['platformId'], device['serialNumber'], device['hostname'], device['softwareVersion'], device['id']
+#	# uncomment the following section
+#	devices = content["response"]
+#
+#	#print "Platform", "Serial Number", "Name", "Version"
+#	for device in devices:
+#		print device['platformId'], device['serialNumber'], device['hostname'], device['softwareVersion'], device['id']
 #	#end of Step3 ######
 			
 except httplib.HTTPException, e:
