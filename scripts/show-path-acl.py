@@ -64,7 +64,7 @@ def show_interface(interface):
     for ace in interface['relevantAces']:
     #    for destport in XXXXXXXXXXXXX
 #	    result += "(%s:%s)" % (destport['protocol'], destport['ports'])
-    return result
+        return result
     
 def show_device(device):
     interfaces = device['interfaces']
