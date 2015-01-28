@@ -15,7 +15,7 @@ import fileinput
 import re
 from  netaddr import *
 
-requests.packages.urllib3.disable_warnings() 
+#requests.packages.urllib3.disable_warnings() 
 
 BASE="/api/v0"
 ID = {}
