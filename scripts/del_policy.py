@@ -46,16 +46,27 @@ def rest_call(url, action, data):
 
 print "Delete all of your polices"
 
+# get all policies
 res = rest_call("/policy", "GET", "")
 if res is not None:
-     for policy in res['response']:
-	 if re.search(GROUP, policy['policyName']):
-             policy_id = policy['id']
-	     print "Deleting Policy", json.dumps(policy, indent=4, separators=(',', ': '))
+    # loop through them
+    for policy in res['response']:
 
-	     del_res = rest_call("/policy/%s" % policy_id, "DELETE", "")
-	     task_id = del_res['response']['taskId']
-	     print "Result"
-	     task_info = rest_call("/task/%s" % task_id, "GET", "")
-	     print json.dumps(task_info, indent=4, separators=(',', ': '))
+        # make sure I only delete my policies.
+        if re.search(GROUP, policy['policyName']):
+            policy_id = policy['id']
+
+            # print the policy
+            print "Deleting Policy", json.dumps(policy, indent=4, separators=(',', ': '))
+
+	    # make the delete
+            del_res = rest_call("/policy/%s" % policy_id, "DELETE", "")
+
+	    # get the task-id
+            task_id = del_res['response']['taskId']
+            print "Result"
+
+	    # get task information
+            task_info = rest_call("/task/%s" % task_id, "GET", "")
+            print json.dumps(task_info, indent=4, separators=(',', ': '))
 

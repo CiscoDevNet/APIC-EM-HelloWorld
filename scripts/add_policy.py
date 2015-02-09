@@ -44,20 +44,29 @@ def rest_call(url, action, data):
         return response.status_code
 
 policy = {
-		  "policyOwner": "Admin",
-		    "networkUser": {"userIdentifiers":["40.0.0.15"],"applications":[{"raw": "12340;UDP"}]},
-		      "actionProperty": {"priorityLevel": "46"},
-		        "actions": [ "PERMIT"],
-			  "policyName": "voice:audio:40.0.0.15-%s" % GROUP
-			   }
+  "policyOwner": "Admin",
+  "networkUser": {"userIdentifiers":["40.0.0.15"],
+                    "applications":[{"raw": "12340;UDP"}]},
+  "actionProperty": {"priorityLevel": "46"},
+  "actions": ["PERMIT"],
+  "policyName": "voice:audio:40.0.0.15-%s" % GROUP
+}
 
 
+# add the policy
 res = rest_call("/policy", "POST", policy)
 if res is not None:
+    # get the task for policy creation
     task_id = res['response']['taskId']
+
+    # print the response with the task
     print json.dumps(res, indent=4, separators=(',', ': '))
+    print "sleeping for task to complete"
     time.sleep(3)
     
+    # get the results of the task
     task_res = rest_call("/task/%s" % task_id, "GET", "")
+
+    # print the result of the task
     print json.dumps(task_res['response'], indent=4, separators=(',', ': '))
 
