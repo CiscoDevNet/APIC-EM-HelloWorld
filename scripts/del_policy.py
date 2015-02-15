@@ -59,14 +59,14 @@ if res is not None:
             # print the policy
             print "Deleting Policy", json.dumps(policy, indent=4, separators=(',', ': '))
 
-	    # make the delete
+        # make the delete
             del_res = rest_call("/policy/%s" % policy_id, "DELETE", "")
 
-	    # get the task-id
+        # get the task-id
             task_id = del_res['response']['taskId']
             print "Result"
 
-	    # get task information
+        # get task information
             task_info = rest_call("/task/%s" % task_id, "GET", "")
             print json.dumps(task_info, indent=4, separators=(',', ': '))
 
