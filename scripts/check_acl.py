@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 # adam radford aradford@cisco.com
 # This is sample code only
 # Illustrates the use of the APIC-EM API
